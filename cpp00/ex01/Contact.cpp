@@ -1,6 +1,11 @@
 #include "Contact.hpp"
 
-Contact::Contact() {}
+int Contact::n = 0;
+
+Contact::Contact(): index(n++)
+{
+    std::cout << "Contact " << index << "th is created"<< std::endl;
+}
 
 Contact::Contact(const std::string &firstName, const std::string &lastName,
                  const std::string &nickname, const std::string &phoneNumber,
@@ -21,4 +26,9 @@ void Contact::displayFullInfo() const {
     std::cout << "Nickname: " << nickname << std::endl;
     std::cout << "Phone Number: " << phoneNumber << std::endl;
     std::cout << "Darkest Secret: " << darkestSecret << std::endl;
+}
+
+Contact::~Contact()
+{
+    std::cout << "Contact " << index << "th is deleted" << std::endl;
 }
