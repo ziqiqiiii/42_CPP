@@ -1,9 +1,9 @@
 CC = g++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
-NAME = phonebook
+NAME = account
 
 # List of source files
-SOURCES = Contact.cpp PhoneBook.cpp main.cpp
+SOURCES = tests.cpp Account.cpp
 
 # Create a list of object files by replacing .cpp with .o
 OBJECTS = $(SOURCES:.cpp=.o)

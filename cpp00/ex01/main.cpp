@@ -1,9 +1,11 @@
 #include "PhoneBook.hpp"
 
-int main() {
+int main() 
+{
     PhoneBook phonebook;
 
-    while (true) {
+    while (true) 
+    {
         std::string command;
         std::cout << "Enter command (ADD, SEARCH, EXIT): ";
         std::cin >> command;

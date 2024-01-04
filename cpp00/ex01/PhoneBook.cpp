@@ -24,7 +24,7 @@ void PhoneBook::addContact()
         std::cout << "Adding contact to the " << currentContacts << "th index" << std::endl;
         new (&contacts[currentContacts]) Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
     }
-    else 
+    else
     {
         std::cout << "Phonebook is full. Replacing the " << currentContacts % MAX_CONTACTS << "th contact" <<std::endl;
         new (&contacts[currentContacts % MAX_CONTACTS]) Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
@@ -35,7 +35,8 @@ void PhoneBook::addContact()
 
 void PhoneBook::searchContact() const {
 
-    if (currentContacts == 0) {
+    if (currentContacts == 0)
+    {
         std::cout << "Phonebook is empty." << std::endl;
         return;
     }
