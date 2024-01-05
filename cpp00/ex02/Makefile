@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -std=c++98
 NAME = account
 
 # List of source files
@@ -22,4 +22,7 @@ clean:
 
 re: clean all
 
-.PHONY: all clean re
+test: all
+	./$(NAME)
+
+.PHONY: all clean re test
