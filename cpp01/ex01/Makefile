@@ -20,12 +20,13 @@ $(NAME): $(OBJECTS)
 clean:
 	rm -f $(OBJECTS) $(NAME)
 
-re: clean 
-
 fclean: clean
 	rm -f $(NAME)
 
 test: all
 	./$(NAME)
+
+re: fclean 
+	all
 
 .PHONY: all clean re test fclean

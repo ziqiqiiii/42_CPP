@@ -2,6 +2,8 @@
 # define HUMANB_HPP
 
 #include "Weapon.hpp"
+#include <iostream>
+#include <string>
 
 using std::cout;
 using std::endl;
@@ -9,11 +11,14 @@ using std::endl;
 class HumanB
 {
     public:
-        HumanB();
+        HumanB(const std::string &name);
         ~HumanB();
         void attack();
+        void setWeapon(Weapon &weapon);
+
     private:
-        Weapon _weapon;
+        Weapon *_weapon;
+        std::string _name;
 };
 
 #endif
