@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 NAME = zombieHorde
 
 # List of source files
@@ -20,7 +20,7 @@ $(NAME): $(OBJECTS)
 clean:
 	rm -f $(OBJECTS) $(NAME)
 
-re: clean 
+re: clean all
 
 fclean: clean
 	rm -f $(NAME)

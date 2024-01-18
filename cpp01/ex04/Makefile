@@ -1,9 +1,9 @@
 CC = g++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
-NAME = human_weapon
+NAME = sed_is_for_losers
 
 # List of source files
-SOURCES = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SOURCES = main.cpp
 
 # Create a list of object files by replacing .cpp with .o
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -19,13 +19,14 @@ $(NAME): $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS) $(NAME)
-
-re: fclean all
+	rm -f *.replace
 
 fclean: clean
 	rm -f $(NAME)
 
 test: all
 	./$(NAME)
+
+re: fclean all
 
 .PHONY: all clean re test fclean

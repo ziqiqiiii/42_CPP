@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 NAME = phonebook
 
 # List of source files
@@ -20,6 +20,12 @@ $(NAME): $(OBJECTS)
 clean:
 	rm -f $(OBJECTS) $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean re
+fclean: clean
+	rm -f $(NAME)
+
+test: all
+	./$(NAME)
+
+.PHONY: all clean re test fclean

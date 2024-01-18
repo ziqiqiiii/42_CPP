@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 NAME = zombieHorde
 
 # List of source files
@@ -26,7 +26,6 @@ fclean: clean
 test: all
 	./$(NAME)
 
-re: fclean 
-	all
+re: fclean all
 
 .PHONY: all clean re test fclean
