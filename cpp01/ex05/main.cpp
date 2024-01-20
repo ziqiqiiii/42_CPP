@@ -2,7 +2,6 @@
 
 int main(void)
 {
-
     Harl example;
     cout << "\nharl 2.0" << endl;
     example.complain("debug");
