@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     cout << "\nharlFilter" << endl;
     if (argc != 2)
     {
-        std::cerr << "Error: invalid input number" << std::cout;
+        std::cerr << "Error: invalid input number";
         return (1);
     }
     str_tolower(argv[1]);

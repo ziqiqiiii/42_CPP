@@ -25,6 +25,7 @@ int main(void)
     cout << "Address: " << &strVar << endl;
 	cout << "Address: " << stringPTR << endl;
 	cout << "Address: " << &stringREF << endl;
+    cout << stringREF << endl;
     printf("Address: %p\n", strVar.c_str());
 	printf("Address: %p\n", stringPTR);
     printf("Address: %p\n", &stringREF);
