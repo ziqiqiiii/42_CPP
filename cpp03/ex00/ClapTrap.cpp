@@ -2,12 +2,12 @@
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-    cout << name << " constructor is called" << endl;
+    cout << "ClapTrap "<< name << " constructor is called" << endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-    cout << _name << " destructor is called" << endl;
+    cout << "Claptrap " << _name << " destructor is called" << endl;
 }
 
 void ClapTrap::attack(const std::string &target)
