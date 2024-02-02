@@ -17,6 +17,7 @@ int main()
     cout << "d " <<d.getRawBits() << endl;
     d.setRawBits(42);
     cout << "d " <<d.getRawBits() << endl;
+    b.setRawBits(10);
     cout << "b " << b.getRawBits() << endl;
     return (0);
 }

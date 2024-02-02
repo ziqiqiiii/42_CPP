@@ -9,11 +9,12 @@ using std::endl;
 class Fixed
 {
     private:
-        int fixed_point;
+        int32_t fixed_point;
         static const int fractional = 8;
     public:
         Fixed(void);
         Fixed(const Fixed &a);
+        Fixed::Fixed(float const n);
         Fixed &operator = (const Fixed &a);
         ~Fixed(void);
         int getRawBits(void) const;
