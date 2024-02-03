@@ -3,7 +3,7 @@ CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 NAME = polymorphism
 
 # List of source files
-SOURCES = main.cpp ClapTrap.cpp FragTrap.cpp
+SOURCES = main.cpp DongWu.cpp Gou.cpp Mao.cpp
 
 # Create a list of object files by replacing .cpp with .o
 OBJECTS = $(SOURCES:.cpp=.o)
