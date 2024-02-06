@@ -4,8 +4,7 @@ NAME = polymorphism
 
 # List of source files
 SOURCES = main.cpp \
-			DongWu.cpp Gou.cpp Mao.cpp \
-			Wrong_DongWu.cpp Wrong_Gou.cpp Wrong_Mao.cpp 
+			DongWu.cpp Gou.cpp Mao.cpp Brain.cpp\
 
 # Create a list of object files by replacing .cpp with .o
 OBJECTS = $(SOURCES:.cpp=.o)
