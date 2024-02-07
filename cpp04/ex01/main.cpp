@@ -62,6 +62,7 @@ int main()
 		for(int i = 0; i < num / 2; i++){
 			animal[i] = new Dog();
 		}
+		cout << endl;
 		for(int i = num / 2; i < num; i++){
 			animal[i] = new Cat();
 		}

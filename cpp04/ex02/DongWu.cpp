@@ -17,7 +17,7 @@ Animal::Animal(const Animal &other)
 	*this = other;
 }
 
-Animal& Animal::operator = (const Animal &other)
+Animal& Animal::operator=(const Animal &other)
 {
 	cout << "Animal copy assignment operator is called" << endl;
 	if (this != &other)
