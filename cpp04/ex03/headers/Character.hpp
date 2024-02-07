@@ -38,6 +38,7 @@ class Character : public ICharacter
         void equip(AMateria* materia);
         void unequip(int idx);
         void use(int idx, ICharacter& target);
+        void setName(string name);
 };
 
 #endif

@@ -34,7 +34,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
         for(int i = 0; i < 4; i++) {
             if (this->_source[i] != NULL)
                 delete this->_source[i];
-            if (other._source != NULL)
+            if (other._source[i] != NULL)
                 this->_source[i] = other._source[i]->clone();
             else
                 this->_source[i] = NULL;

@@ -1,30 +1,58 @@
-CC = g++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
-NAME = amateria
+####### MAKEFILE #######
 
-# List of source files
-SOURCES = main.cpp \
-			AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+### Variables
 
-# Create a list of object files by replacing .cpp with .o
-OBJECTS = $(SOURCES:.cpp=.o)
+SRCS_PATH		=	./srcs/
+OBJS_PATH		=	./objs/
+HEAD_PATH		=	./headers/
 
-all: $(NAME)
+FILES			=	main.cpp		\
+					Character.cpp	\
+					AMateria.cpp	\
+					Cure.cpp		\
+					Ice.cpp			\
+					MateriaSource.cpp
+HEAD_FILES		=	AMateria.hpp	\
+					Character.hpp	\
+					Cure.hpp		\
+					Ice.hpp			\
+					ICharacter.hpp		\
+					IMateriaSource.hpp	\
+					MateriaSource.hpp
 
-$(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^
+SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
+OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
+DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
+HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-# Rule to compile each source file into an object file
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
+NAME			=	amateria
+
+CC				=	clang++
+RM				=	rm -rf
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98
+
+
+### Commandes
+
+all:			${NAME}
+
+${NAME}:		${OBJS}
+				${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+
+${OBJS_PATH}%.o:	${SRCS_PATH}%.cpp
+				mkdir -p ${dir $@}
+				${CC} -c ${CFLAGS} -MMD -MP -I${HEAD_PATH} $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(NAME)
+				${RM} ${OBJS_PATH}
 
-re: fclean all
+fclean:			clean
+				${RM} ${NAME}
 
-fclean: clean
-	rm -f $(NAME)
+re:				fclean all
 
 test: all
 	./$(NAME)
+-include : ${DEPS}
+
+.PHONY:			all clean fclean re

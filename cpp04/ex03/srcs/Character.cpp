@@ -91,21 +91,22 @@ void Character::equip(AMateria *materia)
 
 void Character::unequip(int idx)
 {
+    int i = -1;
     if (idx < 0 || idx >= 4)
         return ;
     if ((this->_materia[idx] != NULL) && (this->_materia[idx]->getType() != ""))
     {
-        for(int a = 0; a < 4; a++) 
+        while (++i < 4)
         {
-            if (this->_x_materia[a] == NULL) 
+            if (this->_x_materia[i] == NULL) 
             {
-                this->_x_materia[a] = this->_materia[idx];
+                this->_x_materia[i] = this->_materia[idx];
                 this->_materia[idx] = NULL;
                 break ; 
             }
         }
-
     }
+    cout << this->getName() << " unequiped " << this->_x_materia[i]->getType() << " on the slot " << i << endl;
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -116,4 +117,9 @@ void Character::use(int idx, ICharacter& target)
         return ;
     cout << this->_name << " ";
     this->_materia[idx]->use(target);
+}
+
+void Character::setName(string name)
+{
+    this->_name = name;
 }
