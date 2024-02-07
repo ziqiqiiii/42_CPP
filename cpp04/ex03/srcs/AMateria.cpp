@@ -1,4 +1,4 @@
-#include "AMateria.hpp"
+#include "../headers/AMateria.hpp"
 
 AMateria::AMateria()
 {
@@ -17,6 +17,13 @@ AMateria::~AMateria()
     // cout << "AMateria " << this->_type << " destructor" << endl;
 }
 
+AMateria& AMateria::operator=(const AMateria &other)
+{
+    if (this != &other) {
+        this->_type = other._type;
+    }
+    return (*this);
+}
 const string& AMateria::getType() const
 {
     return (this->_type);

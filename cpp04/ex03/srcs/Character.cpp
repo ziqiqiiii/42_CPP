@@ -1,4 +1,4 @@
-#include "Character.hpp"
+#include "../headers/Character.hpp"
 
 Character::Character() : _name("Unknown")
 {
@@ -114,7 +114,10 @@ void Character::use(int idx, ICharacter& target)
     if (idx < 0 || idx >= 4)
         return ;
     if (this->_materia[idx] == NULL)
+    {
+        cout << this->_name << " have nothing at solt " << idx << endl;
         return ;
+    }
     cout << this->_name << " ";
     this->_materia[idx]->use(target);
 }

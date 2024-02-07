@@ -19,6 +19,7 @@ class AMateria
     public:
         AMateria();
         AMateria(string const &type);
+        AMateria &operator=(const AMateria &other);
         virtual ~AMateria();
 
         virtual string const &getType() const;

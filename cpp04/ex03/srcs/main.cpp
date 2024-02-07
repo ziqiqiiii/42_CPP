@@ -1,8 +1,8 @@
-#include "Character.hpp"
-#include "MateriaSource.hpp"
-#include "AMateria.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
+#include "../headers/Character.hpp"
+#include "../headers/MateriaSource.hpp"
+#include "../headers/AMateria.hpp"
+#include "../headers/Cure.hpp"
+#include "../headers/Ice.hpp"
 
 int main()
 {
@@ -103,10 +103,12 @@ int main()
         // Showcasing deep copy in action
         Character* dave = new Character(*dynamic_cast<Character*>(alice));
         dave->setName("Dave");
+        dave->unequip(0);
+        dave->equip(src->createMateria("cure"));
         dave->use(0, *charlie);
         dave->use(1, *bob);
         alice->use(0, *dave);
-        alice->use(1, *dave);
+        alice->use(2, *dave);
 
         // Clean up
         delete alice;
