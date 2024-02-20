@@ -6,7 +6,7 @@
 #    By: tzi-qi <tzi-qi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 13:08:32 by tzi-qi            #+#    #+#              #
-#    Updated: 2024/02/20 13:08:33 by tzi-qi           ###   ########.fr        #
+#    Updated: 2024/02/20 14:12:29 by tzi-qi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJECTS) $(NAME)
+	rm -f $(OBJECTS)
 
 re: fclean all
 
