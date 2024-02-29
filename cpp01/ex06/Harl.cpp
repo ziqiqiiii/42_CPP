@@ -15,9 +15,21 @@ void Harl::complain(std::string level)
     void (Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string array[] = {"debug", "info", "warning", "error"};
 
-    for (int i = 0; i < 4 && level != array[i - 1]; i++) {
-        (this->*ptr[i])();
+    int i = 0;
+    while (i < 4)
+    {
+        if (level == array[i])
+        {
+            while (i < 4)
+            {
+                (this->*ptr[i])();
+                i++;
+            }
+            return ;
+        }
+        i++;
     }
+    cout << "\nProbably complaining about insignificant problems" << endl;
 }
 
 void Harl::debug(void)
