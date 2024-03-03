@@ -106,7 +106,7 @@ void Character::unequip(int idx)
             }
         }
     }
-    cout << this->getName() << " unequiped " << this->_x_materia[i]->getType() << " on the slot " << i << endl;
+    cout << this->getName() << " unequiped " << this->_x_materia[i]->getType() << " on the slot " << idx << endl;
 }
 
 void Character::use(int idx, ICharacter& target)
