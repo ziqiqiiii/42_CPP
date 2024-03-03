@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tzi-qi <tzi-qi@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/20 13:09:02 by tzi-qi            #+#    #+#              #
+#    Updated: 2024/02/20 13:10:57 by tzi-qi           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = g++
 CFLAGS = -std=c++98
 NAME = account
@@ -18,11 +30,14 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJECTS) $(NAME)
+	rm -f $(OBJECTS)
 
-re: clean all
+re: fclean all
 
 test: all
 	./$(NAME)
 
-.PHONY: all clean re test
+fclean: clean
+	rm -rf $(NAME)
+
+.PHONY: all clean re test fclean

@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
-NAME = zombieHorde
+NAME = reference
 
 # List of source files
 SOURCES = main.cpp

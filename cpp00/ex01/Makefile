@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tzi-qi <tzi-qi@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/20 13:08:32 by tzi-qi            #+#    #+#              #
+#    Updated: 2024/02/20 14:12:29 by tzi-qi           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = g++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 NAME = phonebook
@@ -18,7 +30,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJECTS) $(NAME)
+	rm -f $(OBJECTS)
 
 re: fclean all
 
