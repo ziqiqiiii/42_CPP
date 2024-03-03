@@ -13,6 +13,26 @@ ScavTrap::~ScavTrap()
     cout << "ScavTrap " << _name << " destructor is called" << endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
+{
+    cout << "ScavTrap copy constructor is called" << endl;
+	*this = other;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap &other)
+{
+    cout << "ScavTrap copy assignment operator is called" << endl;
+	if (this != &other)
+    {
+		this->_name = other._name;
+        this->_attack_damage = other._attack_damage;
+        this->_energy_points = other._energy_points;
+        this->_hit_points = other._hit_points;
+    }
+	return (*this);
+
+}
+
 void ScavTrap::guardGate()
 {
     cout << "ScavTrap " << _name << " in gatekeeper mode" << endl;

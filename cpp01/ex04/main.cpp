@@ -7,22 +7,6 @@ using std::cout;
 using std::endl;
 using std::cerr;
 
-// int error_checking(int argc, char **argv)
-// {
-//     if (argc != 4)
-//     {
-//         std::cout << "insufficient number of input" << std::endl;
-//         return (1);
-//     }
-//     std::ifstream readFile(argv[1]);
-//     if (!readFile.is_open())
-//     {
-//         std::cerr <<"Error: File " << argv[1] << "do not exist." << std::endl;
-//         return (1);
-//     }
-//     return (0);
-// }
-
 int main(int argc, char **argv)
 {
     std::ifstream readFile(argv[1]);
