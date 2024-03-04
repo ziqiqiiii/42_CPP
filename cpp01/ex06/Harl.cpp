@@ -12,24 +12,30 @@ Harl::~Harl(void)
 
 void Harl::complain(std::string level)
 {
-    void (Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-    std::string array[] = {"debug", "info", "warning", "error"};
+    int	level_int;
+	std::string levels[] = { "error", "warning", "info", "debug"};
 
-    int i = 0;
-    while (i < 4)
-    {
-        if (level == array[i])
-        {
-            while (i < 4)
-            {
-                (this->*ptr[i])();
-                i++;
-            }
-            return ;
-        }
-        i++;
-    }
-    cout << "\nProbably complaining about insignificant problems" << endl;
+	level_int = -1;
+	while (++level_int < 4)
+		if (level == levels[level_int]) break ;
+	switch (level_int)
+	{
+		case 3:
+			Harl::debug();
+			//fall through
+		case 2:
+			Harl::info();
+			//fall through
+		case 1:
+			Harl::warning();
+			//fall through
+		case 0:
+			Harl::error();	
+			break;
+	  default:
+	  	std::cout << endl << "[ Probably complaining about insignificant problems ]\n";
+		break;
+	}
 }
 
 void Harl::debug(void)

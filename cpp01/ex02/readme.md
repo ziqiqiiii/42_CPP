@@ -27,6 +27,8 @@ In summary, while both pointers and references provide ways to access data indir
 
 Memory Management: Pointers store addresses, while references directly refer to the same location.
 Declaration Syntax: Pointers use * before the name, while references use & after.
+
 Reassignment: Pointers can be reassigned, while references cannot.
+
 Null Value: Pointers can be null, while references cannot.
 Pointers offer more flexibility but require careful management to avoid memory leaks and dangling pointers. References are safer and easier to use but lack the flexibility of pointers for specific memory manipulations.
