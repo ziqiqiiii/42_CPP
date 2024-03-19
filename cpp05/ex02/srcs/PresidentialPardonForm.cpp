@@ -37,6 +37,6 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
     if (executor.getGrade() > this->getGradeExec())
         throw AForm::CantExecForm();
     
-    // cout << executor.getName() << " execute form " << this->getName();
+    cout << executor.getName() << " execute form " << this->getName() << endl;
     cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox" << endl;
 }

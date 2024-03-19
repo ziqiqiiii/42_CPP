@@ -40,7 +40,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
     if (executor.getGrade() > this->getGradeExec())
         throw AForm::CantExecForm();
 
-    // cout << executor.getName() << " execute form " << this->getName();
+    cout << executor.getName() << " execute form " << this->getName() << endl;
 
     cout << "DRRRRRRRRRR DRRRRRRR DRRRRR " << endl;
     srand(time(0));
