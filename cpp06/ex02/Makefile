@@ -7,26 +7,15 @@ OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp \
-					Bureaucrat.cpp \
-					AForm.cpp \
-					ShrubberyCreationForm.cpp \
-					RobotomyRequestForm.cpp \
-					PresidentialPardonForm.cpp \
-					Intern.cpp
-
-HEAD_FILES		=	Bureaucrat.hpp \
-					AForm.hpp \
-					ShrubberyCreationForm.hpp \
-					RobotomyRequestForm.hpp \
-					PresidentialPardonForm.hpp \
-					Intern.hpp 
+					Bureaucrat.cpp
+HEAD_FILES		=	Bureaucrat.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	Intern
+NAME			=	bureaucrat
 
 CC				=	clang++
 RM				=	rm -rf
@@ -46,7 +35,6 @@ ${OBJS_PATH}%.o:	${SRCS_PATH}%.cpp
 
 clean:
 				${RM} ${OBJS_PATH}
-				$(RM) *_shruberry
 
 fclean:			clean
 				${RM} ${NAME}
