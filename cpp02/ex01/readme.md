@@ -6,7 +6,7 @@ Function overloading is a feature in C++ that allows multiple functions with the
 
 Here's a simple example of function overloading in C++:
 
-```
+```cpp
 Copy code
 #include <iostream>
 
