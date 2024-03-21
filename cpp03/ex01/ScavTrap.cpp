@@ -38,7 +38,11 @@ void ScavTrap::guardGate()
     cout << "ScavTrap " << _name << " in gatekeeper mode" << endl;
 }
 
-
+void ScavTrap::attack(const std::string& target)
+{
+    cout << "ScavTrap " << _name << " attacks " << target;
+    cout << ", causing -1 point of damage" << endl;
+}
 // Explanation of Construction/Destruction Chaining:
 
 // Construction:
