@@ -156,13 +156,26 @@ void Cast::convert(const string &str)
                 break ;
             }
             i = check;
-            if (isprint(i))
-                std::cout << "char   : '" << static_cast<char>(i) << "'" << std::endl;
-            else 
-                std::cerr << "char   : Non displayable" << std::endl;
+            if (i >= CHAR_MIN && i <= CHAR_MAX) {
+                if (isprint(i))
+                    std::cout << "char   : '" << static_cast<char>(i) << "'" << std::endl;
+                else 
+                    std::cerr << "char   : Non displayable" << std::endl;
+            }
+            else {
+                cout << "char   : impossible" << endl;
+            }
             std::cout << "int    : "  << static_cast<int>(i) << endl;
-            std::cout << "float  : "  << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" <<endl;
-            std::cout << "double : "  << std::fixed << std::setprecision(1) << static_cast<double>(i) << endl;
+            std::cout << "float  : "  << static_cast<float>(i);
+            if (i < 1000000)
+                cout << ".0f" << endl;
+            else
+                cout << "f" << endl;
+            std::cout << "double : "  << static_cast<double>(i) << endl;
+            if (i < 1000000)
+                cout << ".0" << endl;
+            else
+                cout << endl;
             break ;
         }
         case FLOAT: {
