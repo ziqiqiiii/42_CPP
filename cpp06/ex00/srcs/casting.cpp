@@ -108,18 +108,60 @@ void Cast::convert(const string &str)
 {
     bool (*checker[6])(const string &str) = {Cast::checkChar, Cast::checkNan, Cast::checkInf, \
                                     Cast::checkInt, Cast::checkFloat, Cast::checkDouble};
-    s_type type;
+    s_type type = INVALID;
     
-    type = INVALID;
     for (int i = 0; i < 6; i++){
         if (checker[i](str) == 1){
             type = static_cast<s_type>(i);
             break ;
         }
     }
+
     cout << "type : " << type << endl;
-    // int num = std::atoi(str.c_str());
-    // char c = num;
+
+    switch (type)
+    {
+        case CHAR: {
+            char c = str.c_str()[0];
+            if (std::isprint(c))
+                std::cout << "char   : '" << c << "'" << std::endl;
+            else 
+                std::cerr << "char   : Non displayable" << std::endl; 
+            std::cout << "int    : "  << static_cast<int>(c) << endl;
+            std::cout << "float  : "  << static_cast<float>(c) << endl;
+            std::cout << "double : "  << static_cast<double>(c) << endl;
+            break ;           
+        }
+        case NAN: {
+            cout << "char   : impossible" << endl;
+            cout << "int    : impossible" << endl;
+            cout << "float  : nanf" << endl;
+            cout << "double : nan" << endl;
+            break ;
+        }
+        case INF: {
+            cout << "char   : impossible" << endl;
+            cout << "int    : impossible" << endl;
+            cout << "float  : " << std::fixed << std::setprecision(1) << std::atof(str.c_str());
+            cout << "f" << endl;
+            cout << "double : " << std::strtod(str.c_str(), NULL) << endl;
+            break ;
+        }
+        case INT: {
+            
+            break ;
+        }
+        case FLOAT: {
+            break ;
+        }
+        case DOUBLE: {
+            break ;
+        }
+        default:
+            cout << "Error: Input that doesn't make sense" << endl;
+            break ;
+            
+    }
 
     // // Disaplayable characters are from 32 <= && >= 126
     // if (num == 0 && !isdigit(str[0]))
