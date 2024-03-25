@@ -7,15 +7,16 @@ OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp \
-					Bureaucrat.cpp
-HEAD_FILES		=	Bureaucrat.hpp
+					casting.cpp \
+
+HEAD_FILES		=	casting.hpp \
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	bureaucrat
+NAME			= 	casting
 
 CC				=	clang++
 RM				=	rm -rf
@@ -42,7 +43,7 @@ fclean:			clean
 re:				fclean all
 
 test: all
-	./$(NAME)
+	./$(NAME) 10
 -include : ${DEPS}
 
 .PHONY:			all clean fclean re
