@@ -41,14 +41,14 @@ void ClapTrap::attack(const std::string &target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
     this->_hit_points -= amount;
-    cout << "ClapTrap " << this->_name << "takes " << amount;
+    cout << "ClapTrap " << this->_name << " takes " << amount;
     cout << " points of damage" << endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
     this->_hit_points += amount;
-    cout << "ClapTrap " << this->_name << "repair " << amount;
+    cout << "ClapTrap " << this->_name << " repair " << amount;
     cout << " of hit points" << endl;
 }
 
