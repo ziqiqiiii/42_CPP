@@ -51,16 +51,25 @@ bool Cast::checkFloat(const string &str)
     else
         return false;
     bool hasDecimalPoint = false;
+    bool hasSuffix = false;
     for (size_t i = start_index; i < str.length(); i++) {
-        if (!std::isdigit(str[i]) && str[i] != '.')
+        if (!std::isdigit(str[i]) && str[i] != '.' && str[i] != 'f' && str[i] != 'F')
             return false;
         if (str[i] == '.') {
             if (hasDecimalPoint)
                 return false;
             hasDecimalPoint = true;
         }
+        if (str[i] == 'f' || str[i] == 'F') {
+            if (hasSuffix) {
+                return false;
+            }
+            hasSuffix = true;
+        }
     }
-    return true;
+    if (hasDecimalPoint && hasSuffix)
+        return true;
+    return false;
 }
 
 bool Cast::checkDouble(const string &str)
