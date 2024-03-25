@@ -119,10 +119,11 @@ void Cast::convert(const string &str)
 
     cout << "type : " << type << endl;
 
+    char c = str.c_str()[0];
+    int i = std::atoi(str.c_str());
     switch (type)
     {
         case CHAR: {
-            char c = str.c_str()[0];
             if (std::isprint(c))
                 std::cout << "char   : '" << c << "'" << std::endl;
             else 
@@ -148,7 +149,13 @@ void Cast::convert(const string &str)
             break ;
         }
         case INT: {
-            
+            if (isprint(i))
+                std::cout << "char   : '" << static_cast<char>(i) << "'" << std::endl;
+            else 
+                std::cerr << "char   : Non displayable" << std::endl;
+            std::cout << "int    : "  << static_cast<int>(i) << endl;
+            std::cout << "float  : "  << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" <<endl;
+            std::cout << "double : "  << std::fixed << std::setprecision(1) << static_cast<double>(i) << endl;
             break ;
         }
         case FLOAT: {
