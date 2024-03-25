@@ -149,6 +149,13 @@ void Cast::convert(const string &str)
             break ;
         }
         case INT: {
+
+            long int check = strtol(str.c_str(), NULL, 10);
+            if (check < INT_MIN || check > INT_MAX) {
+                cerr << "Error: input is an INT, but overflowed" << endl;
+                break ;
+            }
+            i = check;
             if (isprint(i))
                 std::cout << "char   : '" << static_cast<char>(i) << "'" << std::endl;
             else 
