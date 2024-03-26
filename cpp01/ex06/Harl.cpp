@@ -32,9 +32,9 @@ void Harl::complain(std::string level)
 		case 0:
 			Harl::error();	
 			break;
-	  default:
-	  	std::cout << endl << "[ Probably complaining about insignificant problems ]\n";
-		break;
+	  	default:
+	  		std::cout << endl << "[ Probably complaining about insignificant problems ]\n";
+			break;
 	}
 }
 
