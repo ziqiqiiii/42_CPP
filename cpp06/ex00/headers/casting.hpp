@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <climits>
 #include <limits>
+#include <cstring>
 
 using std::cout;
 using std::endl;
@@ -27,12 +28,21 @@ enum s_type
 class Cast {
     private:
         Cast ();
+        //checker
         static bool checkChar(const string &str);
         static bool checkNan(const string &str);
         static bool checkInf(const string &str);
         static bool checkInt(const string &str);
         static bool checkFloat(const string &str);
         static bool checkDouble(const string &str);
+
+        //checker
+        static void printChar(const string &str);
+        static void printNan();
+        static void printInf(const string &str);
+        static void printInt(const string &str);
+        static void printFloat(const string &str);
+        static void printDouble(const string &str);
     public:
         static void convert(const string &str);
 };

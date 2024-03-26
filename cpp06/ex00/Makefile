@@ -8,6 +8,8 @@ HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp \
 					casting.cpp \
+					checker.cpp \
+					print.cpp \
 
 HEAD_FILES		=	casting.hpp \
 
@@ -18,7 +20,7 @@ HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
 NAME			= 	casting
 
-CC				=	clang++
+CC				=	g++
 RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
