@@ -7,17 +7,21 @@ OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp \
-					Bureaucrat.cpp
-HEAD_FILES		=	Bureaucrat.hpp
+					base.cpp
+
+HEAD_FILES		=	a.hpp \
+					b.hpp \
+					c.hpp \
+					base.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	bureaucrat
+NAME			=	identify_real_type
 
-CC				=	clang++
+CC				=	g++
 RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
