@@ -28,23 +28,22 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
     if (this != &other)
     {
         this->_grade = other._grade;
-        // this->_name = other._name;
     }
     return *this;
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
-{
-    os << other._name << " , bureaucrat grade " << other._grade;
-    return os;
-}
-
-const string& Bureaucrat::getName()
+const string& Bureaucrat::getName() const
 {
     return this->_name;
 }
 
-int Bureaucrat::getGrade()
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
+{
+    os << other.getName() << " , bureaucrat grade " << other.getGrade();
+    return os;
+}
+
+int Bureaucrat::getGrade() const
 {
     return this->_grade;
 }

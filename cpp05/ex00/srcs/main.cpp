@@ -13,8 +13,10 @@ int main()
 
             cout << endl;
 
+            cout << Eva.getName() << " decrease grade" << endl;
             Eva.DcreaseGrade();
             cout << Eva << endl;
+            cout << Daniel.getName() << " increase grade" << endl;
             Daniel.IncreaseGrade();
             cout << Daniel << endl;
         }
@@ -37,11 +39,14 @@ int main()
             cout << Kelly << endl;
 
             cout << endl;
-
+            
+            cout << Eva.getName() << " decrease grade" << endl;
             Eva.DcreaseGrade();
             cout << Eva << endl;
+            cout << Kelly.getName() << " decrease grade" << endl;
             Kelly.DcreaseGrade();
             cout << Kelly << endl;
+            cout << Kelly.getName() << " decrease grade" << endl;
             Kelly.DcreaseGrade();
             cout << Kelly << endl;
         }
@@ -64,10 +69,13 @@ int main()
 
             cout << endl;
 
+            cout << Eva.getName() << " decrease grade" << endl;
             Eva.DcreaseGrade();
             cout << Eva << endl;
+            cout << Kelly.getName() << " increase grade" << endl;
             Kelly.IncreaseGrade();
             cout << Kelly << endl;
+            cout << Kelly.getName() << " increase grade" << endl;
             Kelly.IncreaseGrade();
             cout << Kelly << endl;
         }
