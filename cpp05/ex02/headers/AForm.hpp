@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include <string.h>
@@ -24,8 +24,6 @@ class AForm
         AForm(const string& name, int grade_sign, int grade_exec);
         AForm(const AForm& other);
         AForm &operator=(const AForm& other);
-
-        friend std::ostream& operator<<(std::ostream& os, const AForm& other);
 
         class GradeTooHighException: public std::exception
         {
@@ -71,5 +69,7 @@ class AForm
 
         virtual void execute(const Bureaucrat &executor) const = 0;
 };
+
+std::ostream& operator<<(std::ostream& os, const AForm& other);
 
 #endif

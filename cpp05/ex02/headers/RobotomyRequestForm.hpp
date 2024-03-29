@@ -5,8 +5,7 @@
 #include "Bureaucrat.hpp"
 #include <cstdlib>
 
-class RobotomyRequestForm: public AForm
-{
+class RobotomyRequestForm: public AForm {
     private:
         string _target;
     public:
@@ -20,5 +19,7 @@ class RobotomyRequestForm: public AForm
 
         void execute(const Bureaucrat &executor) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& other);
 
 #endif

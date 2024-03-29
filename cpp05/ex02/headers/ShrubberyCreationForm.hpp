@@ -7,8 +7,7 @@
 #include <filesystem>
 #include <iostream>
 
-class ShrubberyCreationForm: public AForm
-{
+class ShrubberyCreationForm: public AForm {
     private:
         string _target;
     public:
@@ -22,5 +21,7 @@ class ShrubberyCreationForm: public AForm
 
         void execute(const Bureaucrat &executor) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& other);
 
 #endif

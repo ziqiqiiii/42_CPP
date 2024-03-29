@@ -33,6 +33,14 @@ string RobotomyRequestForm::getTarget() const
     return this->_target;
 }
 
+std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& other)
+{
+    os << "Name: " << other.getName() << " , Grade to sign: " << other.getGradeSign();
+    os << " , Grade to execute: " << other.getGradeExec() << " , Signed: " << other.getSign();
+    cout << " , Target: " << other.getTarget() << endl;
+    return os;
+}
+
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
     if (!AForm::getSign())
@@ -42,7 +50,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 
     cout << executor.getName() << " execute form " << this->getName() << endl;
 
-    cout << "DRRRRRRRRRR DRRRRRRR DRRRRR " << endl;
+    cout << "DRRRRRRRRRR DRRRRRRR DRRRRR ";
     srand(time(0));
     if (rand() % 2 == 0)
         cout << this->getTarget() << " has been robotomized" << endl;

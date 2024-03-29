@@ -31,6 +31,14 @@ string ShrubberyCreationForm::getTarget() const
     return this->_target;
 }
 
+std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& other)
+{
+    os << "Name: " << other.getName() << " , Grade to sign: " << other.getGradeSign();
+    os << " , Grade to execute: " << other.getGradeExec() << " , Signed: " << other.getSign();
+    cout << " , Target: " << other.getTarget() << endl;
+    return os;
+}
+
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
     if (!AForm::getSign())

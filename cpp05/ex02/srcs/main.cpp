@@ -1,4 +1,3 @@
-#include "../headers/Bureaucrat.hpp"
 #include "../headers/AForm.hpp"
 #include "../headers/PresidentialPardonForm.hpp"
 #include "../headers/RobotomyRequestForm.hpp"
@@ -6,22 +5,31 @@
 
 int main()
 {
-	Bureaucrat crat("highlvl", 1);
-	Bureaucrat crat1("midlvl", 75);
-	Bureaucrat crat2("lowlvl", 150);
+	Bureaucrat highlvl("highlvl", 1);
+	Bureaucrat midlvl("midlvl", 75);
+	Bureaucrat lowlvl("lowlvl", 150);
 
 	cout << "=====SHRUBBERY FORM TESTS====" << endl;
 	try
 	{
 		ShrubberyCreationForm newform("targetasdf");
 		
-		crat.signForm(newform);
+		cout << endl;
+		cout << newform << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		highlvl.signForm(newform);
+		midlvl.signForm(newform);
 		cout << "" << endl;
-		crat.executeForm(newform);
+
+		highlvl.executeForm(newform);
 		cout << "" << endl;
-		crat1.executeForm(newform);
+		midlvl.executeForm(newform);
         cout << "" << endl;
-        crat2.executeForm(newform);
+        lowlvl.executeForm(newform);
 
 	}
 	catch (const std::exception& e)
@@ -38,9 +46,19 @@ int main()
 	{
 		RobotomyRequestForm newformrobo("targetasdf");
 		
-		crat.signForm(newformrobo);
+		cout << endl;
+		cout << newformrobo << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		highlvl.signForm(newformrobo);
 		cout << "" << endl;
-		crat.executeForm(newformrobo);
+
+		highlvl.executeForm(newformrobo);
+		midlvl.executeForm(newformrobo);
+		lowlvl.executeForm(newformrobo);
 	}
 	catch (const std::exception& e)
 	{
@@ -55,9 +73,19 @@ int main()
 	{
 		PresidentialPardonForm newformpred("targetasdf");
 		
-		crat.signForm(newformpred);
+		cout << endl;
+		cout << newformpred << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		lowlvl.signForm(newformpred);
+		midlvl.signForm(newformpred);
+		highlvl.signForm(newformpred);
 		cout << "" << endl;
-		crat.executeForm(newformpred);
+
+		highlvl.executeForm(newformpred);
 	}
 	catch (const std::exception& e)
 	{
@@ -72,8 +100,15 @@ int main()
 	{
 		PresidentialPardonForm newformpred("targetasdf");
 		
-		crat1.signForm(newformpred);
-		crat2.executeForm(newformpred);
+		cout << endl;
+		cout << newformpred << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		midlvl.signForm(newformpred);
+		lowlvl.executeForm(newformpred);
 	}
 	catch (const std::exception& e)
 	{
@@ -87,8 +122,15 @@ int main()
 	try
 	{
 		PresidentialPardonForm newformpred("targetasdf");
-		
-		crat2.executeForm(newformpred);
+
+		cout << endl;
+		cout << newformpred << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		lowlvl.executeForm(newformpred);
 	}
 	catch (const std::exception& e)
 	{
@@ -98,6 +140,9 @@ int main()
     cout << endl << endl;
 	cout << "Please Enter to continue" << endl;
     getline(std::cin, input);
+	cout << endl << endl << endl;
+	cout << "Congratulations that You PASSED all the test" << endl;
+	cout << endl << endl << endl;
 
 	return 0;
 }

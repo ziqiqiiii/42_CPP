@@ -41,6 +41,11 @@ std::ostream& operator<<(std::ostream& os, const AForm& other)
 
 void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
+    if (this->_signed == true)
+    {
+        cout << "Form " << this->getName() << " already signed" << endl;
+        return ;
+    }
     if (bureaucrat.getGrade() <= this->getGradeSign()) {
         this->_signed = true;
     }

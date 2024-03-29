@@ -22,8 +22,6 @@ class Bureaucrat {
         ~Bureaucrat();
         Bureaucrat &operator=(const Bureaucrat &other);
 
-        friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& other);
-
 		class GradeTooHighException : public std::exception
 		{
 
@@ -53,4 +51,5 @@ class Bureaucrat {
 		void executeForm(AForm const &form);
 };
 
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& other);
 #endif 
