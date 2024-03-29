@@ -28,7 +28,7 @@ HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
 NAME			=	Intern
 
-CC				=	clang++
+CC				=	g++
 RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 

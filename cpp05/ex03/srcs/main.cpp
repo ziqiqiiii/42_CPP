@@ -17,9 +17,9 @@ void	print_nonl(std::string str)
 
 int main()
 {
-	Bureaucrat crat("highlvl", 1);
-	Bureaucrat crat1("midlvl", 75);
-	Bureaucrat crat2("lowlvl", 150);
+	Bureaucrat highlvl("highlvl", 1);
+	Bureaucrat midlvl("midlvl", 75);
+	Bureaucrat lowlvl("lowlvl", 150);
 	Intern intern;
 
 	print("=====SHRUBBERY FORM TESTS====");
@@ -27,10 +27,17 @@ int main()
 	{
 		AForm *newform = intern.makeForm("shrubbery creation", "Bender");
 		
-		crat.signForm(*newform);
+		cout << endl;
+		cout << *newform << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		highlvl.signForm(*newform);
 		print("");
-		crat.executeForm(*newform);
-		crat1.executeForm(*newform);
+		highlvl.executeForm(*newform);
+		midlvl.executeForm(*newform);
 		delete newform;
 	}
 	catch (const std::exception& e)
@@ -47,9 +54,16 @@ int main()
 	{
 		AForm *newformrobo = intern.makeForm("robotomy request", "Bender");
 		
-		crat.signForm(*newformrobo);
+		cout << endl;
+		cout << *newformrobo << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		highlvl.signForm(*newformrobo);
 		print("");
-		crat.executeForm(*newformrobo);
+		midlvl.executeForm(*newformrobo);
 		delete newformrobo;
 	}
 	catch (const std::exception& e)
@@ -65,9 +79,16 @@ int main()
 	{
 		AForm * newformpred = intern.makeForm("presidential pardon", "Bender");
 		
-		crat.signForm(*newformpred);
+		cout << endl;
+		cout << *newformpred << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		highlvl.signForm(*newformpred);
 		print("");
-		crat.executeForm(*newformpred);
+		midlvl.executeForm(*newformpred);
 		delete newformpred;
 	}
 	catch (const std::exception& e)
@@ -82,8 +103,16 @@ int main()
 	try
 	{		
 		AForm *newformpred =  intern.makeForm("presidential pardon", "Bender");
-		crat1.signForm(*newformpred);
-		crat2.executeForm(*newformpred);
+
+		cout << endl;
+		cout << *newformpred << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		midlvl.signForm(*newformpred);
+		lowlvl.executeForm(*newformpred);
 
 		delete newformpred;
 	}
@@ -99,7 +128,15 @@ int main()
 	try
 	{		
 		AForm *newformpred =  intern.makeForm("presidential pardon", "Bender");
-		crat2.executeForm(*newformpred);
+
+		cout << endl;
+		cout << *newformpred << endl;
+		cout << highlvl << endl;
+		cout << midlvl << endl;
+		cout << lowlvl << endl;
+		cout << endl;
+
+		lowlvl.executeForm(*newformpred);
 
 		delete newformpred;
 	}
@@ -124,6 +161,9 @@ int main()
 	cout << endl << endl;
 	cout << "Please Enter to continue" << endl;
     getline(std::cin, input);
+	cout << endl << endl << endl;
+	cout << "Congratulations that You PASSED all the test" << endl;
+	cout << endl << endl << endl;
 
 	return 0;
 }
