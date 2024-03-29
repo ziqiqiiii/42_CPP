@@ -15,6 +15,10 @@ int main()
             cout << Daniel << endl;
 
             cout << endl;
+            cout << "Forms before signing:" << endl;
+            cout << idk;
+            cout << maybe;
+            cout << endl;
             
             idk.beSigned(Eva);
             maybe.beSigned(Daniel);
@@ -48,7 +52,6 @@ int main()
             Form form3("form3", 80, 90);
 
             // Printing out bureaucrats
-            cout << "Initial bureaucrats:" << endl;
             cout << Eva << endl;
             cout << Daniel << endl;
             cout << John << endl;
@@ -56,7 +59,7 @@ int main()
             cout << endl;
 
             // Printing out forms
-            cout << "Initial forms:" << endl;
+            cout << "Forms before signing:" << endl;
             cout << idk;
             cout << maybe;
             cout << form3;
@@ -85,6 +88,8 @@ int main()
 	cout << "Please Enter to continue" << endl;
     getline(std::cin, input);
     {
+        //implement error case
+        // Form idk grade_exec > 150
         try
         {
             Bureaucrat Eva("Eva", 100);
@@ -93,13 +98,12 @@ int main()
             Form idk("idk", 10, 151);
             Form maybe("maybe", 5, 40);
 
-            cout << "Initial bureaucrats:" << endl;
             cout << Eva << endl;
             cout << Kelly << endl;
 
             cout << endl;
 
-            cout << "Initial forms:" << endl;
+            cout << "Forms before signing:" << endl;
             cout << idk;
             cout << maybe;
             

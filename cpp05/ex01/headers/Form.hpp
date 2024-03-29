@@ -23,8 +23,6 @@ class Form
         Form(const Form& other);
         Form &operator=(const Form& other);
 
-        friend std::ostream& operator<<(std::ostream& os, const Form& other);
-
         class GradeTooHighException: public std::exception
         {
             public:
@@ -51,5 +49,7 @@ class Form
         void signForm(const Bureaucrat &bureaucrat);
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& other);
 
 #endif
