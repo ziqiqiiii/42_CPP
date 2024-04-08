@@ -17,14 +17,13 @@ void	print_nonl(std::string str)
 
 int main()
 {
-	Bureaucrat highlvl("highlvl", 1);
-	Bureaucrat midlvl("midlvl", 75);
-	Bureaucrat lowlvl("lowlvl", 150);
-	Intern intern;
-
 	print("=====SHRUBBERY FORM TESTS====");
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
+		Intern intern;
 		AForm *newform = intern.makeForm("shrubbery creation", "Bender");
 		
 		cout << endl;
@@ -52,6 +51,10 @@ int main()
 	print("=====ROBOTOMY FORM TESTS====");
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
+		Intern intern;
 		AForm *newformrobo = intern.makeForm("robotomy request", "Bender");
 		
 		cout << endl;
@@ -77,6 +80,10 @@ int main()
 	print("=====PRESIDENTIAL PARDON TESTS====");
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
+		Intern intern;
 		AForm * newformpred = intern.makeForm("presidential pardon", "Bender");
 		
 		cout << endl;
@@ -101,7 +108,11 @@ int main()
 	print("============================");
 	print("=====GRADE TOO LOW TEST====");
 	try
-	{		
+	{	
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
+		Intern intern;
 		AForm *newformpred =  intern.makeForm("presidential pardon", "Bender");
 
 		cout << endl;
@@ -126,7 +137,11 @@ int main()
 	print("============================");
 	print("=====NO SIGN TEST====");
 	try
-	{		
+	{	
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
+		Intern intern;	
 		AForm *newformpred =  intern.makeForm("presidential pardon", "Bender");
 
 		cout << endl;
@@ -150,6 +165,10 @@ int main()
 	print("============================");
 	print("=====UNKNOWN TEST====");
 	try {
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
+		Intern intern;
 		AForm *newformpred =  intern.makeForm("presion", "Bender");
 		delete newformpred;
 	}

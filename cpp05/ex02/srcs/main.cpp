@@ -5,13 +5,13 @@
 
 int main()
 {
-	Bureaucrat highlvl("highlvl", 1);
-	Bureaucrat midlvl("midlvl", 75);
-	Bureaucrat lowlvl("lowlvl", 150);
-
 	cout << "=====SHRUBBERY FORM TESTS====" << endl;
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
+
 		ShrubberyCreationForm newform("targetasdf");
 		
 		cout << endl;
@@ -44,6 +44,9 @@ int main()
 	cout << "=====ROBOTOMY FORM TESTS====" << endl;
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
 		RobotomyRequestForm newformrobo("targetasdf");
 		
 		cout << endl;
@@ -71,6 +74,9 @@ int main()
 	cout << "=====PRESIDENTIAL PARDON TESTS====" << endl;
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
 		PresidentialPardonForm newformpred("targetasdf");
 		
 		cout << endl;
@@ -98,6 +104,9 @@ int main()
 	cout << "=====GRADE TOO LOW TEST====" << endl;
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
 		PresidentialPardonForm newformpred("targetasdf");
 		
 		cout << endl;
@@ -121,6 +130,9 @@ int main()
 	cout << "=====NO SIGN TEST====" << endl;
 	try
 	{
+		Bureaucrat highlvl("highlvl", 1);
+		Bureaucrat midlvl("midlvl", 75);
+		Bureaucrat lowlvl("lowlvl", 150);
 		PresidentialPardonForm newformpred("targetasdf");
 
 		cout << endl;
