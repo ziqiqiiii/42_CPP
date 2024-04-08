@@ -7,7 +7,7 @@ int main()
         try 
         {
             Bureaucrat Eva("Eva", 100);
-            Bureaucrat Daniel("Daniel", 1);
+            Bureaucrat Daniel("Daniel", 0);
             Form       idk("idk", 10, 100);
             Form       maybe("maybe", 5, 40);
     
@@ -21,6 +21,8 @@ int main()
             cout << endl;
             
             idk.beSigned(Eva);
+            maybe.beSigned(Daniel);
+
             maybe.beSigned(Daniel);
 
             cout << endl;

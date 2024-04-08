@@ -34,7 +34,7 @@ std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& other)
 {
     os << "Name: " << other.getName() << " , Grade to sign: " << other.getGradeSign();
     os << " , Grade to execute: " << other.getGradeExec() << " , Signed: " << other.getSign();
-    cout << " , Target: " << other.getTarget() << endl;
+    os << " , Target: " << other.getTarget() << endl;
     return os;
 }
 
