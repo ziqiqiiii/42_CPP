@@ -2,10 +2,13 @@
 # define ITER_HPP
 
 #include <iostream>
+#include <string>
+#include <iomanip>
 
 using std::cout;
 using std::endl;
 using std::cerr;
+using std::string;
 
 template<typename T, typename Func>
 void iter(T *array, int length, Func func){
@@ -16,16 +19,16 @@ void iter(T *array, int length, Func func){
 
 template<typename T>
 void print(const T& element) {
-    cout << element << " ";
+    cout << std::fixed << std::setprecision(1) << element << " ";
 }
 
 template<typename T>
-void add2(const T& element) {
+void add2(T& element) {
     element += 2;
 }
 
 template<typename T>
-void multiply2(const T& element) {
+void multiply2(T& element) {
     element *= 2;
 }
 
