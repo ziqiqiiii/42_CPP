@@ -15,7 +15,7 @@ OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			= 	casting
+NAME			= 	simple_function_templates
 
 CC				=	g++
 RM				=	rm -rf
@@ -42,7 +42,7 @@ fclean:			clean
 re:				fclean all
 
 test: all
-	./$(NAME) 10
+	./$(NAME)
 -include : ${DEPS}
 
 .PHONY:			all clean fclean re
