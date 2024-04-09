@@ -8,4 +8,4 @@ Downcasting
 Upcasting
 - Casting a derived class pointer (or reference) to a base class pointer (or reference) is known as upcasting.
 
-(https://media.geeksforgeeks.org/wp-content/uploads/20210506174912/one-300x131.png)
+![Downcasting and Upcasting](https://media.geeksforgeeks.org/wp-content/uploads/20210506174912/one-300x131.png)
