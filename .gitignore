@@ -1,2 +1,2 @@
 *.o
-./cpp0*/ex*/objs/
+*./cpp0*/ex*/objs/*
