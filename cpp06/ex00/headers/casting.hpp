@@ -46,4 +46,5 @@ class Cast {
     public:
         static void convert(const string &str);
 };
+
 #endif

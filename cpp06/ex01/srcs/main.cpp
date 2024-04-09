@@ -8,19 +8,27 @@ int main()
     uintptr_t returnEva = Serializer::serializer(&Eva);
     uintptr_t returnJohn = Serializer::serializer(&John);
 
+    cout << endl;
+    cout << "-----------------------------"<< endl;
+    cout << "Return of Serializers" << endl;
+    cout << "-----------------------------"<< endl << endl;
     cout << "Return of Eva  :" << returnEva << endl;
     cout << "Return of John :" << returnJohn << endl;
 
     Data* original_Eva = Serializer::deserialize(returnEva);
     Data* original_John = Serializer::deserialize(returnJohn);
 
+    cout << endl;
+    cout << "-----------------------------"<< endl;
+    cout << "Return of Deserializers" << endl;
+    cout << "-----------------------------"<< endl << endl;
     cout << "id   : " << original_Eva->id << " ,";
     cout << "name : " << original_Eva->name << " ,";
     cout << "value: " << original_Eva->value << endl;
 
     cout << "id   : " << original_John->id << " ,";
     cout << "name : " << original_John->name << " ,";
-    cout << "value: " << original_John->value << endl;
+    cout << "value: " << original_John->value << endl << endl;
 
     return 0;
 }

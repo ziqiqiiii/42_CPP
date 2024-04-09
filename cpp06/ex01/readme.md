@@ -13,3 +13,7 @@ int* intptr;
 char* charptr = reinterpret_cast<char*>(intptr); // Convert int* to char*
 
 ```
+# uniptr_t 
+
+**uintptr_t** is an unsigned integer type that is capable of storing a data pointer (whether it can hold a function pointer is unspecified). Which typically means that it's the same size as a pointer.
+

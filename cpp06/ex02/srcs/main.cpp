@@ -23,8 +23,10 @@ void identify(Base* p)
         cout << "A" << endl;
     else if (dynamic_cast<B*>(p))
         cout << "B" << endl;
-    else
+    else if (dynamic_cast<C*>(p))
         cout << "C" << endl;
+    else
+        cerr << "Unknown" << endl;
 }
 
 void identify(Base& p)
@@ -37,7 +39,13 @@ void identify(Base& p)
 			dynamic_cast<B&>(p);
 			cout << "B" << endl;
 		} catch (std::bad_cast&) {
-			cout << "C" << endl;
+            try {
+                dynamic_cast<C&>(p);    
+			    cout << "C" << endl;
+            }
+            catch (std::bad_cast&) {
+                cerr << "Unknown" << endl;
+            }
 		}
 	}
 }
