@@ -32,7 +32,7 @@ int main()
         double doubleArray[] = {0.1, 0.2, 0.3, 0.4, 0.5};
         int doubleArrayLength = sizeof(doubleArray) / sizeof(double);
        
-       cout << "-----------------------------"<< endl;
+        cout << "-----------------------------"<< endl;
         cout << "Double Test Cases" << endl;
         cout << "-----------------------------"<< endl;
 
@@ -49,6 +49,30 @@ int main()
         cout << "doubleArray [ multiply 2 ] to each elements" << endl;
         iter(doubleArray, doubleArrayLength, print<double>);
         cout << endl;
+    }
+    cout << endl << endl;
+	cout << "Please Enter to continue" << endl;
+    getline(std::cin, input);
+    {
+        char charArray[] = {'a', 'b', 'c', 'd', 'e'};
+        int charArrayLength = sizeof(charArray) / sizeof (char);
+
+        cout << "-----------------------------"<< endl;
+        cout << "Char Test Cases" << endl;
+        cout << "-----------------------------"<< endl;
+
+        cout << "charArray elements before iter" << endl;
+        iter(charArray, charArrayLength, print<char>);
+        cout << endl;
+
+        iter(charArray, charArrayLength, add2<char>);
+        cout << "charArray [   add 2    ] to each elements" << endl; 
+        iter(charArray, charArrayLength, print<char>);
+        cout << endl;
+
+        iter(charArray, charArrayLength, add2<char>);
+        cout << "charArray [   add 2    ] to each elements" << endl; 
+        iter(charArray, charArrayLength, print<char>);
     }
     cout << endl << endl;
 	cout << "Please Enter to continue" << endl;
