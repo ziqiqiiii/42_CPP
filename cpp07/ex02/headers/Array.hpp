@@ -5,6 +5,7 @@
 #include <string>
 #include <iomanip>
 #include <stdexcept>
+#include <cstdlib>
 
 using std::cout;
 using std::endl;
@@ -35,7 +36,7 @@ class Array {
             this->_arraySize = other._arraySize;
             this->_elements = new T[other._arraySize];
             for (unsigned int i = 0; i < other._arraySize; i++){
-                    this->_elements[i] = other._elements;
+                    this->_elements[i] = other._elements[i];
             }
         }
         // assignment operator
@@ -46,7 +47,7 @@ class Array {
                 this->_arraySize = other._arraySize;
                 this->_elements = new T[other._arraySize];
                 for (unsigned int i = 0; i < other._arraySize; i++){
-                    this->_elements[i] = other._elements;
+                    this->_elements[i] = other._elements[i];
             }
             }
             return (*this);
@@ -59,8 +60,8 @@ class Array {
         //OPERATOR OVERLOAD
         T& operator[](unsigned int i)
         {
-            if (i > this->_arraySize)
-                throw OutOfBounds;
+            if (i >= this->_arraySize)
+                throw OutOfBounds();
             return this->_elements[i];
         }
 
@@ -78,7 +79,7 @@ class Array {
                 {
                     return "the index is out of bounds";
                 }
-        }
+        };
 };
 
 #endif

@@ -1,81 +1,129 @@
-#include "../headers/iter.hpp"
+#include "../headers/Array.hpp"
 
-int main()
+#define MAX_VAL 10
+
+int main(int, char**)
 {
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
     {
-        int intArray[] = {1, 2, 3, 4, 5};
-        int intArrayLength = sizeof(intArray) / sizeof(int);
-
-        cout << "-----------------------------"<< endl;
-        cout << "Integer Test Cases" << endl;
-        cout << "-----------------------------"<< endl;
-
-        cout << "intArray elements before iter" << endl;
-        iter(intArray, intArrayLength, print<int>);
-        cout << endl;
-
-        iter(intArray, intArrayLength, add2<int>);
-        cout << "intArray [   add 2    ] to each elements" << endl; 
-        iter(intArray, intArrayLength, print<int>);
-        cout << endl;
-
-        iter(intArray, intArrayLength, multiply2<int>);
-        cout << "intArray [ multiply 2 ] to each elements" << endl;
-        iter(intArray, intArrayLength, print<int>);
-        cout << endl;
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
     }
+    //SCOPE
+    {
+
+        cout << "-----------------------------"<< endl;
+        cout << "Out of Bound Test" << endl;
+        cout << "-----------------------------"<< endl;
+        Array<int> tmp;
+        try
+        {
+            for (int i = 0; i < MAX_VAL + 1; i++)
+                cout << "tmp[" << i << "]:\t" << tmp[i] << endl;
+        }
+        catch(const std::exception& e)
+        {
+           cout << e.what() << '\t' << endl;
+           cout << "You tried to access past the last element of the array" << endl;
+        }
+
+        cout << endl << endl;
+        cout << "Please Enter to continue" << endl;
+        string input;
+        getline(std::cin, input);
+
+        tmp = numbers;
+        Array<int> test(tmp);
+
+        cout << "-----------------------------"<< endl;
+        cout << "Copy Constructor Test" << endl;
+        cout << "-----------------------------"<< endl;
+        try
+        {
+            for (int i = 0; i < MAX_VAL; i++)
+            {
+                if (tmp[i] != test[i])
+                {
+                    cout << "didn't save the same value!!" << endl;
+                    return 1;
+                }
+                cout << "tmp [" << i << "]: " << tmp[i] << endl; //uncomment these two lines to see the arrays have the same values
+                cout << "test[" << i << "]: " << test[i] << endl;
+            }
+        }
+        catch(const std::exception& e)
+        {
+           cout << e.what() << '\t';
+           cout << "You tried to access past the last element of the array" << endl;
+        }
+
+        cout << endl << endl;
+        cout << "Please Enter to continue" << endl;
+        getline(std::cin, input);
+
+        cout << "-----------------------------"<< endl;
+        cout << "Modify Value Test" << endl;
+        cout << "-----------------------------"<< endl;
+        cout << endl << "test[1]:\t" << test[1] << endl;
+        cout << "tmp[1]:\t\t" << tmp[1] << endl << endl;
+
+        test[1] = 123456789;
+
+        cout << "test[1]:\t" << test[1] << endl;
+        cout << "tmp[1]:\t\t" << tmp[1] << endl << endl;
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+           cout << "didn't save the same value!!" << endl;
+            return 1;
+        }
+    }
+
     cout << endl << endl;
-	cout << "Please Enter to continue" << endl;
-	string input;
+    cout << "Please Enter to continue" << endl;
+    string input;
     getline(std::cin, input);
+
+     cout << "-----------------------------"<< endl;
+    cout << "Access Negative index" << endl;
+    cout << "-----------------------------"<< endl;
+    try
     {
-        double doubleArray[] = {0.1, 0.2, 0.3, 0.4, 0.5};
-        int doubleArrayLength = sizeof(doubleArray) / sizeof(double);
-       
-        cout << "-----------------------------"<< endl;
-        cout << "Double Test Cases" << endl;
-        cout << "-----------------------------"<< endl;
-
-        cout << "doubleArray elements before iter" << endl;
-        iter(doubleArray, doubleArrayLength, print<double>);
-        cout << endl;
-
-        iter(doubleArray, doubleArrayLength, add2<double>);
-        cout << "doubleArray [   add 2    ] to each elements" << endl; 
-        iter(doubleArray, doubleArrayLength, print<double>);
-        cout << endl;
-
-        iter(doubleArray, doubleArrayLength, multiply2<double>);
-        cout << "doubleArray [ multiply 2 ] to each elements" << endl;
-        iter(doubleArray, doubleArrayLength, print<double>);
-        cout << endl;
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+       cout << e.what() << '\n';
+       cout << "index was -2" << endl;
+       delete[] mirror;
     }
     cout << endl << endl;
-	cout << "Please Enter to continue" << endl;
+    cout << "Please Enter to continue" << endl;
     getline(std::cin, input);
+
+    cout << "-----------------------------"<< endl;
+    cout << "Access Index more than Size" << endl;
+    cout << "-----------------------------"<< endl;
+    try
     {
-        char charArray[] = {'a', 'b', 'c', 'd', 'e'};
-        int charArrayLength = sizeof(charArray) / sizeof (char);
-
-        cout << "-----------------------------"<< endl;
-        cout << "Char Test Cases" << endl;
-        cout << "-----------------------------"<< endl;
-
-        cout << "charArray elements before iter" << endl;
-        iter(charArray, charArrayLength, print<char>);
-        cout << endl;
-
-        iter(charArray, charArrayLength, add2<char>);
-        cout << "charArray [   add 2    ] to each elements" << endl; 
-        iter(charArray, charArrayLength, print<char>);
-        cout << endl;
-
-        iter(charArray, charArrayLength, add2<char>);
-        cout << "charArray [   add 2    ] to each elements" << endl; 
-        iter(charArray, charArrayLength, print<char>);
+        numbers[MAX_VAL] = 0;
+        cout << MAX_VAL << endl;
     }
+    catch(const std::exception& e)
+    {
+       cout << e.what() << '\n';
+       cout << "tried to access past the last element of the array" << endl;
+    }
+
     cout << endl << endl;
-	cout << "Please Enter to continue" << endl;
+    cout << "Please Enter to continue" << endl;
     getline(std::cin, input);
 
     return 0;
