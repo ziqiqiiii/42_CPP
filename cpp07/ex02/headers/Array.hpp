@@ -17,6 +17,7 @@ class Array {
         T* _elements;
         unsigned int _arraySize;
     public:
+        //ORTHODOX CANONICAL FORM
         //default constructor
         Array<T>(){
             this->_elements = new T[0];
@@ -55,7 +56,29 @@ class Array {
             delete[] this->_elements;
         }
 
+        //OPERATOR OVERLOAD
+        T& operator[](unsigned int i)
+        {
+            if (i > this->_arraySize)
+                throw OutOfBounds;
+            return this->_elements[i];
+        }
 
+        //MEMBER FUNCTION
+        int size() const
+        {
+            return this->_arraySize;
+        }
+        
+        //Exception
+        class OutOfBounds: public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return "the index is out of bounds";
+                }
+        }
 };
 
 #endif
