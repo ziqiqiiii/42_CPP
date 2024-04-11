@@ -8,14 +8,14 @@ HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp \
 					
-HEAD_FILES		=	whatever.hpp
+HEAD_FILES		=	easy_find.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	simple_function_templates
+NAME			=	easy_find
 
 CC				=	g++
 RM				=	rm -rf
