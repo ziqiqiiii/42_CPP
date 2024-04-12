@@ -32,15 +32,15 @@ void identify(Base* p)
 void identify(Base& p)
 {
 	try {
-		dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		cout << "A" << endl;
 	} catch (const std::bad_cast& e) {
 		try {
-			dynamic_cast<B&>(p);
+			(void)dynamic_cast<B&>(p);
 			cout << "B" << endl;
 		} catch (std::bad_cast&) {
             try {
-                dynamic_cast<C&>(p);    
+                (void)dynamic_cast<C&>(p);    
 			    cout << "C" << endl;
             }
             catch (std::bad_cast&) {
