@@ -25,7 +25,7 @@ template<typename T>
 typename T::iterator easyFind(T& t, int value)
 {
     typename T::iterator result = std::find(t.begin(), t.end(),  value);
-    if (result != t.end())
+    if (result == t.end())
         throw std::invalid_argument("Value do not found in the container");
     return result;
 }
