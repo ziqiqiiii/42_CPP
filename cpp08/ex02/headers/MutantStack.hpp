@@ -10,11 +10,17 @@ using std::endl;
 using std::cerr;
 
 template<typename T>
-class MutantStack: public std::stack<T, std::deque<T>> {
+class MutantStack: public std::stack<T, std::deque<T> > {
     public:
+        MutantStack() {}
+        ~MutantStack() {}
+        MutantStack(const MutantStack& other) { this = *other; };
+        MutantStack& operator=(const MutantStack& other) {
+            std::stack< T, std::deque<T> >::operator=( other );
+            return *this;
+        }
 
-        using typename std::stack<T, std::deque<T>>::container_type; //The underlying container
-        using typename container_type::iterator;
+        typedef typename std::deque<T>::iterator iterator;
 
         iterator begin() { return this->c.begin(); }
         iterator end() { return this->c.end(); }
