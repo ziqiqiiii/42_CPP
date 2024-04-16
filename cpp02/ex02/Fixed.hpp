@@ -23,7 +23,6 @@ class Fixed
         void setRawBits(int const raw);
         int toInt(void) const;
         float toFloat(void) const;
-        friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
         // Comparison operators
         bool operator > (const Fixed &a) const;
@@ -52,6 +51,8 @@ class Fixed
         static const Fixed& max(const Fixed& a, const Fixed& b);
         
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 // overload operator <<
 // 1.When we need overload << & >> operator??

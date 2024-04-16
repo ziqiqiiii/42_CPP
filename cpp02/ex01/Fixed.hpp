@@ -19,6 +19,7 @@ class Fixed
         Fixed(const Fixed &a);
         Fixed &operator = (const Fixed &a);
         ~Fixed(void);
+        
         int toInt(void) const;
         float toFloat(void) const;
         friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);

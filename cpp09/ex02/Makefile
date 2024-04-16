@@ -15,7 +15,7 @@ OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	mutated_abomination
+NAME			=	pmerge_me
 
 CC				=	g++
 RM				=	rm -rf

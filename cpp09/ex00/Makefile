@@ -15,8 +15,7 @@ OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	easy_find
-
+NAME			=	btc
 CC				=	g++
 RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
