@@ -1,5 +1,10 @@
 #include "../headers/whatever.hpp"
 
+struct Person {
+    std::string name;
+    int age;
+};
+
 int main()
 {
 	{
@@ -89,6 +94,30 @@ int main()
 		cout << "MIN && MAX" << endl;
 		cout << "min( d1, d2 ) = " << min( d1, d2 ) << endl;
 		cout << "max( d1, d2 ) = " << max( d1, d2 ) << endl;
+	}
+	cout << endl << endl;
+	cout << "Please Enter to continue" << endl;
+    getline(std::cin, input);
+	{
+		cout << "-----------------------------"<< endl;
+		cout << "Double Test Cases" << endl;
+		cout << "-----------------------------"<< endl;
+
+		Person person1 = {"Alice", 30};
+		Person person2 = {"Bob", 25};
+
+		cout << "Before swap" << endl;
+		cout << "person 1: " << person1.name << " , age: " << person1.age << endl;
+		cout << "person 2: " << person2.name << " , age: " << person2.age << endl;
+
+		swap(person1, person2);
+
+		cout << "swap person1 and person2" << endl;
+		cout << "person 1: " << person1.name << " , age: " << person1.age << endl;
+		cout << "person 2: " << person2.name << " , age: " << person2.age << endl;
+		std::cout << "Person 1 age: " << person1.age << ", Person 2 age: " << person2.age << std::endl;
+		std::cout << "Youngest person: " << min(person1.age, person2.age) << std::endl;
+		std::cout << "Oldest person: " << max(person1.age, person2.age) << std::endl;
 	}
 	cout << endl << endl;
 	cout << "Please Enter to continue" << endl;
