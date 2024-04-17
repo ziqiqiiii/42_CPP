@@ -65,7 +65,7 @@ void BitcoinExchange::readInput(const string& inputFile)
         try {
             double value = std::stod(valueStr);
             isValueValid(value);
-            
+            isDateValid(dateStr);
             // double exchangeRate = getExchangeRate(dateStr);
             // if (exchangeRate == -1.0) {
             //     std::cerr << "Error: Exchange rate not found for date " << dateStr << std::endl;
@@ -90,7 +90,18 @@ void BitcoinExchange::isValueValid(double value)
         throw BitcoinExchange::valueTooSmall();
 }
 
-void BitcoinExchange::isDateValid(string dateStr)
-{
-    (void)dateStr;
+void BitcoinExchange::isDateValid(string dateStr) {
+    std::istringstream iss(dateStr);
+    char delimiter;
+    int year, month, day;
+
+    if (!(iss >> year >> delimiter >> month >> delimiter >> day)) {
+        throw BitcoinExchange::dateIsNotValid();
+    }
+    if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) {
+        throw BitcoinExchange::dateIsNotValid(); 
+    }
+    if (month == 2 && day > 29) {
+        throw BitcoinExchange::dateIsNotValid();
+    }
 }
