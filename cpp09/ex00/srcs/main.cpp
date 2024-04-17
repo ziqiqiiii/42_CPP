@@ -2,10 +2,14 @@
 
 int main(int argc, char **argv)
 {
+    if (argc != 2) {
+        std::cerr << "Error: Please provide an input file." << std::endl;
+        return EXIT_FAILURE;
+    }
     string inputFilename = argv[1];
     BitcoinExchnage bitcoinExchange("data.csv");
-
+    
     (void)argv;
     (void)argc;
-    return 0;
+    return EXIT_SUCCESS;
 }   
