@@ -60,8 +60,6 @@ void BitcoinExchange::readInput(const string& inputFile)
             cerr << "Error: bad input => " << line << endl;
             continue ;
         }
-        // cout << "pipe    : " << pipe << endl;
-        // cout << "valueStr: " << valueStr << endl;
         try {
             double value = std::stod(valueStr);
             isValueValid(value);

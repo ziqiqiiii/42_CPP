@@ -24,18 +24,25 @@ class BitcoinExchange
     private:
         map<string, double> _exchangeRate;
     public:
+        //=========================
         //ORTHODOX COCANICAL FORM
+        //=========================
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& other);
         BitcoinExchange& operator=(const BitcoinExchange& other);
         ~BitcoinExchange();
 
+        //=========================
         //MEMBER FUNCTION
+        //=========================
         void readInput(const string& inputFile);
+        // checker
         void isValueValid(double value);
         void isDateValid(string dateStr);
 
+        //=========================
         //EXCEPTION ERRORS
+        //=========================
         class valueNotPositive: public std::exception
         {
             public:
