@@ -32,6 +32,8 @@ class BitcoinExchange
 
         //MEMBER FUNCTION
         void readInput(const string& inputFile);
+        void isValueValid(double value);
+        void isDateValid(string dateStr);
 
         //EXCEPTION ERRORS
         class valueNotPositive: public std::exception

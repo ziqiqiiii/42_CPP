@@ -64,12 +64,7 @@ void BitcoinExchange::readInput(const string& inputFile)
         // cout << "valueStr: " << valueStr << endl;
         try {
             double value = std::stod(valueStr);
-            if (value <= 0)
-                throw BitcoinExchange::valueNotPositive();
-            else if (value == INT_MAX)
-                throw BitcoinExchange::valueTooLarge();
-            else if (value == INT_MIN)
-                throw BitcoinExchange::valueTooSmall();
+            isValueValid(value);
             
             // double exchangeRate = getExchangeRate(dateStr);
             // if (exchangeRate == -1.0) {
@@ -78,9 +73,24 @@ void BitcoinExchange::readInput(const string& inputFile)
             // }
             // double result = value * exchangeRate;
             // std::cout << dateStr << " => " << value << " = " << std::fixed << std::setprecision(2) << result << std::endl;
+            cout << dateStr << " => " << valueStr << endl;
         } catch (const std::exception& e) {
             cerr << "Error: " << e.what() << endl;
         }
-        cout << dateStr << " => " << valueStr << endl;
     }
+}
+
+void BitcoinExchange::isValueValid(double value)
+{
+    if (value <= 0)
+        throw BitcoinExchange::valueNotPositive();
+    else if (value >= INT_MAX)
+        throw BitcoinExchange::valueTooLarge();
+    else if (value <= INT_MIN)
+        throw BitcoinExchange::valueTooSmall();
+}
+
+void BitcoinExchange::isDateValid(string dateStr)
+{
+    (void)dateStr;
 }
