@@ -7,7 +7,9 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
     string inputFilename = argv[1];
-    BitcoinExchnage bitcoinExchange("data.csv");
+    BitcoinExchange bitcoinExchange;
+    
+    bitcoinExchange.readInput(inputFilename);
     
     (void)argv;
     (void)argc;
