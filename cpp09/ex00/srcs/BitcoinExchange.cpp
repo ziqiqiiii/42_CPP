@@ -23,7 +23,7 @@ BitcoinExchange::BitcoinExchange() {
         exchange_rate = line.substr(commaPos + 1);
         date = line.substr(0, commaPos);
         double double_exchangeRate;
-        double_exchangeRate = std::stod(exchange_rate);
+        double_exchangeRate = std::strtod(exchange_rate.c_str(), NULL);
         this->_exchangeRate[date] = double_exchangeRate;
     }
 }
@@ -61,7 +61,7 @@ void BitcoinExchange::readInput(const string& inputFile)
             continue ;
         }
         try {
-            double value = std::stod(valueStr);
+            double value = std::strtod(valueStr.c_str(), NULL);
             isValueValid(value);
             isDateValid(dateStr);
             // double exchangeRate = getExchangeRate(dateStr);

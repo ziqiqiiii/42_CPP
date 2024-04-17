@@ -6,7 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <cstdlib>
-#include <limits>
+#include <climits>
 #include <exception>
 #include <string>
 #include <algorithm>
