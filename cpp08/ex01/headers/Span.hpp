@@ -25,6 +25,8 @@ class Span {
         Span& operator=(const Span& other);
         ~Span();
 
+        const vector<int>* getVector() const;
+
         void addNumber(int num);
         void addNumber(vector<int>::iterator begin, vector<int>::iterator end);
         int shortestSpan(void) const;
@@ -58,5 +60,7 @@ class Span {
         };
 
 };
+
+std::ostream& operator<<( std::ostream&, const Span& );
 
 #endif

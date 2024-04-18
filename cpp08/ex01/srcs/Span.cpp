@@ -87,3 +87,13 @@ int Span::longestSpan(void) const
     }
     return longest;
 }
+
+const vector< int >* Span::getVector( void ) const {
+    return &this->_numbers;
+}
+
+std::ostream& operator<<( std::ostream& os, const Span& span ) {
+    for ( vector<int>::const_iterator it = span.getVector()->begin(); it != span.getVector()->end(); ++it )
+        os << *it << " ";
+    return os;
+}

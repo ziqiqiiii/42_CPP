@@ -13,6 +13,7 @@ int main()
         sp.addNumber(9);
         sp.addNumber(11);
 
+        std::cout << "sp: " << sp << std::endl;
         std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
         std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
 
@@ -30,6 +31,7 @@ int main()
             Span sp = Span(1);
             sp.addNumber(6);
 
+            std::cout << "sp: " << sp << std::endl;
             std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
             std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
         } catch (const std::exception& e) {
@@ -61,7 +63,7 @@ int main()
     getline(std::cin, input);
     {
         cout << "--------------------------------------------------------------------------------" << endl;
-        cout << "         Test case 4: Testing adding numbers using addNumber() function        " << endl;
+        cout << "                   Test case 4: Testing adding lots of number                   " << endl;
         cout << "--------------------------------------------------------------------------------" << endl;
 
         try {
@@ -73,6 +75,8 @@ int main()
             numbersToAdd.push_back(9);
             numbersToAdd.push_back(11);
             sp.addNumber(numbersToAdd.begin(), numbersToAdd.end());
+
+            std::cout << "sp: " << sp << std::endl;
             std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
             std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
         } catch (const std::exception& e) {
