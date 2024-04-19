@@ -13,7 +13,7 @@ int main()
         sp.addNumber(9);
         sp.addNumber(11);
 
-        std::cout << "sp: " << sp << std::endl;
+        std::cout << "sp            : " << sp << std::endl;
         std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
         std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
 
@@ -31,7 +31,7 @@ int main()
             Span sp = Span(1);
             sp.addNumber(6);
 
-            std::cout << "sp: " << sp << std::endl;
+            std::cout << "sp            : " << sp << std::endl;
             std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
             std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
         } catch (const std::exception& e) {
@@ -52,6 +52,7 @@ int main()
             for (int i = 1; i <= size; ++i) {
                 sp.addNumber(i);
             }
+            cout << "Span from 1 to 1000" << endl << endl;
             std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
             std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
         } catch (const std::exception& e) {
@@ -76,7 +77,7 @@ int main()
             numbersToAdd.push_back(11);
             sp.addNumber(numbersToAdd.begin(), numbersToAdd.end());
 
-            std::cout << "sp: " << sp << std::endl;
+            std::cout << "sp            : " << sp << std::endl;
             std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
             std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
         } catch (const std::exception& e) {
@@ -93,10 +94,12 @@ int main()
         
         try {
             Span sp = Span(3);
+
             sp.addNumber(6);
             sp.addNumber(3);
             sp.addNumber(17);
             sp.addNumber(9);
+            
             std::cout << "shortest Span : " << sp.shortestSpan() << std::endl;
             std::cout << "longest Span  : " << sp.longestSpan() << std::endl;
         } catch (const std::exception& e) {
