@@ -5,4 +5,5 @@
 container      | Pros          | Cons        
 ---------------|---------------|---------------
 std::vector<std::pair<std::string, double>> | - Simple to use
-                                              - Allows sequential access 
+                                            | - Allows sequential access 
+                                            | 
