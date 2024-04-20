@@ -64,13 +64,6 @@ void BitcoinExchange::readInput(const string& inputFile)
             double value = std::strtod(valueStr.c_str(), NULL);
             isValueValid(value);
             isDateValid(dateStr);
-            // double exchangeRate = getExchangeRate(dateStr);
-            // if (exchangeRate == -1.0) {
-            //     std::cerr << "Error: Exchange rate not found for date " << dateStr << std::endl;
-            //     continue;
-            // }
-            // double result = value * exchangeRate;
-            // std::cout << dateStr << " => " << value << " = " << std::fixed << std::setprecision(2) << result << std::endl;
             cout << dateStr << " => " << valueStr << endl;
         } catch (const std::exception& e) {
             cerr << "Error: " << e.what() << endl;
@@ -82,9 +75,9 @@ void BitcoinExchange::isValueValid(double value)
 {
     if (value <= 0)
         throw BitcoinExchange::valueNotPositive();
-    else if (value >= INT_MAX)
+    else if (value > 1000)
         throw BitcoinExchange::valueTooLarge();
-    else if (value <= INT_MIN)
+    else if (value < 0)
         throw BitcoinExchange::valueTooSmall();
 }
 
