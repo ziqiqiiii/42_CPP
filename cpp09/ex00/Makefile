@@ -42,7 +42,7 @@ fclean:			clean
 re:				fclean all
 
 test: all
-	./$(NAME) input.txt 
+	./$(NAME) tests/input.txt
 -include : ${DEPS}
 
 .PHONY:			all clean fclean re

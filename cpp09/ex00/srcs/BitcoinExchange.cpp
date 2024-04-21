@@ -53,6 +53,13 @@ void BitcoinExchange::readInput(const string& inputFile)
     }
     string line;
     std::getline(file, line);
+    try {
+        BitcoinExchange::isHeaderValid(line);
+
+    } catch (const std::exception &e) {
+        cerr << "Error: " << e.what() << endl;
+        return ;
+    }
     while (std::getline(file, line)) {
         std::istringstream iss(line);
         string dateStr, pipe ,valueStr;
@@ -61,10 +68,10 @@ void BitcoinExchange::readInput(const string& inputFile)
             continue ;
         }
         try {
-            double value = std::strtod(valueStr.c_str(), NULL);
-            isValueValid(value);
+            isValueValid(valueStr);
             isDateValid(dateStr);
             double exchangeRate = BitcoinExchange::geteExchangeRate(dateStr);
+            double value = std::strtod(valueStr.c_str(), NULL);
             cout << dateStr << " => " << valueStr << " = " << value * exchangeRate << endl;
         } catch (const std::exception& e) {
             cerr << "Error: " << e.what() << endl;
@@ -90,8 +97,13 @@ double BitcoinExchange::geteExchangeRate(const string date)
     }
 }
 
-void BitcoinExchange::isValueValid(double value)
+void BitcoinExchange::isValueValid(string valueStr)
 {
+    for (size_t i = 0; i < valueStr.length(); i++) {
+        if (!std::isdigit(valueStr[i]))
+            throw BitcoinExchange::valueIsNotValid();
+    }
+    double value = std::strtod(valueStr.c_str(), NULL);
     if (value <= 0)
         throw BitcoinExchange::valueNotPositive();
     else if (value > 1000)
@@ -111,7 +123,26 @@ void BitcoinExchange::isDateValid(string dateStr) {
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) {
         throw BitcoinExchange::dateIsNotValid(); 
     }
-    if (month == 2 && day > 29) {
+    else if (month == 2 && day > 29) {
         throw BitcoinExchange::dateIsNotValid();
     }
+    else if ((month <= 7) && (month != 2 && month % 2 == 0)) {
+        if (day > 30)
+            throw BitcoinExchange::dateIsNotValid();
+    }
+    else if ((month >= 8) && (month % 2 == 1)) {
+        if (day > 30)
+            throw BitcoinExchange::dateIsNotValid();
+    }
+}
+
+void BitcoinExchange::isHeaderValid(string line)
+{
+    std::istringstream issHeader(line);
+    string dateHeader, pipe , valueHeader;
+
+    if (!(issHeader >> dateHeader >> pipe >> valueHeader))
+        throw BitcoinExchange::invalidHeader();
+    else if (dateHeader != "date" || pipe != "|" || valueHeader != "value")
+        throw BitcoinExchange::invalidHeader();
 }

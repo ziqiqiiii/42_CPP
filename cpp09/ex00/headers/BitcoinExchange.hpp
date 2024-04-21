@@ -38,12 +38,22 @@ class BitcoinExchange
         void readInput(const string& inputFile);
         double geteExchangeRate(const string date);
         // checker
-        void isValueValid(double value);
+        void isValueValid(string valueStr);
         void isDateValid(string dateStr);
+        void isHeaderValid(string line);
 
         //=========================
         //EXCEPTION ERRORS
         //=========================
+        class valueIsNotValid: public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return "value is not valid" ;
+                }
+        };
+
         class valueNotPositive: public std::exception
         {
             public:
@@ -77,6 +87,15 @@ class BitcoinExchange
                 virtual const char* what() const throw()
                 {
                     return "date is not valid." ;
+                }
+        };
+
+        class invalidHeader: public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return "header is not valid." ;
                 }
         };
 };
