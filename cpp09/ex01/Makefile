@@ -7,16 +7,16 @@ OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp \
-					Span.cpp
+					RPN.cpp
 					
-HEAD_FILES		=	Span.hpp
+HEAD_FILES		=	RPN.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	reverse_polish_notation
+NAME			=	RPN
 
 CC				=	g++
 RM				=	rm -rf
