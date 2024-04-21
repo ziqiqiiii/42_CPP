@@ -36,6 +36,7 @@ class BitcoinExchange
         //MEMBER FUNCTION
         //=========================
         void readInput(const string& inputFile);
+        double geteExchangeRate(const string date);
         // checker
         void isValueValid(double value);
         void isDateValid(string dateStr);

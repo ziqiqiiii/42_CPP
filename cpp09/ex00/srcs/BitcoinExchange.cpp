@@ -64,9 +64,28 @@ void BitcoinExchange::readInput(const string& inputFile)
             double value = std::strtod(valueStr.c_str(), NULL);
             isValueValid(value);
             isDateValid(dateStr);
-            cout << dateStr << " => " << valueStr << endl;
+            double exchangeRate = BitcoinExchange::geteExchangeRate(dateStr);
+            cout << dateStr << " => " << valueStr << " = " << value * exchangeRate << endl;
         } catch (const std::exception& e) {
             cerr << "Error: " << e.what() << endl;
+        }
+    }
+    file.close();
+}
+
+double BitcoinExchange::geteExchangeRate(const string date)
+{
+    map<string, double>::const_iterator it = this->_exchangeRate.find(date);
+
+    if (it != this->_exchangeRate.end()){
+        return it->second;
+    } else {
+        it = this->_exchangeRate.lower_bound(date);
+        if (it == this->_exchangeRate.begin()) {
+            return it->second;
+        } else {
+            --it;
+            return it->second;
         }
     }
 }
