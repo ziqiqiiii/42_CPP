@@ -28,13 +28,13 @@ class RPN
         //=========================
 		RPN();
 		~RPN();
-		RPN()
+		RPN(const RPN& other);
+		RPN& operator=(const RPN& other);
 
 		//=========================
         //MEMBER FUNCTION
         //=========================
 		void evaluate(string expression);
-
 		//Checker
 		void isValueValid(string expression);
 
