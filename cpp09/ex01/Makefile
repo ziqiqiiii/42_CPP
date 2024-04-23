@@ -42,8 +42,8 @@ fclean:			clean
 
 re:				fclean all
 
-test: all
-	./$(NAME)
+test: all 
+	./$(NAME) "2 2 +"
 -include : ${DEPS}
 
 .PHONY:			all clean fclean re
