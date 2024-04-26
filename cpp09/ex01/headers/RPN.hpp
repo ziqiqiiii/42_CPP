@@ -11,6 +11,7 @@
 #include <string>
 #include <algorithm>
 #include <stack>
+#include <stdexcept>
 
 using std::cout;
 using std::endl;
@@ -34,9 +35,8 @@ class RPN
 		//=========================
         //MEMBER FUNCTION
         //=========================
-		void evaluate(string expression);
-		//Checker
-		void isValueValid(string expression);
+		int	evaluate(string expression);
+		int	applyOperation(int a, int b, char op);
 
 };
 

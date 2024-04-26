@@ -6,8 +6,12 @@ int main(int argc, char **argv)
         cerr << "Error: invalid number of arguments" << endl;
         return EXIT_FAILURE;
     }
-    RPN rpn;
-
-    rpn.evaluate(argv[1]);
+    try {
+        RPN rpn;
+        cout << rpn.evaluate(argv[1]) << endl;
+    } catch (const std::exception& e) {
+        cerr << e.what() << endl;
+        return EXIT_FAILURE;
+    }
     return EXIT_SUCCESS;
 }   

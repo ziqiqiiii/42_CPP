@@ -42,8 +42,12 @@ fclean:			clean
 
 re:				fclean all
 
-test: all 
-	./$(NAME) "2 2 +"
+default: all 
+	./run_ex01.sh default_test_cases.txt
+
+test: all
+	./run_ex01.sh test_cases.txt
+	
 -include : ${DEPS}
 
 .PHONY:			all clean fclean re
