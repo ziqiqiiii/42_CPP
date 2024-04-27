@@ -1,26 +1,20 @@
-#include "../headers/MutantStack.hpp"
+#include "../headers/PmergeMe.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-	MutantStack<int> mstack;
-	mstack.push(5);
-	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
-	mstack.pop();
-	std::cout << mstack.size() << std::endl;
-	mstack.push(3);
-	mstack.push(5);
-	mstack.push(737);
-	mstack.push(0);
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
-	++it;
-	--it;
-	while (it != ite)
-	{
-		std::cout << *it << std::endl;
-		++it;
+	if (argc < 2) {
+		cerr << "Error: Invalid arguments" << endl;
+		return EXIT_FAILURE;
 	}
-	std::stack<int> s(mstack);
-    return 0;
+	try {
+		PmergeMe pm;
+		string num = pm.ArrayToString(argv);
+		pm.checkPositiveNum(num);
+		vector<int> vec = pm.StringToVector(num);
+		list<int> lst = pm.StringToList(num);
+	} catch (std::exception& e) {
+		cerr << "Error: " << e.what() << endl;
+		return EXIT_FAILURE;
+	}
+    return EXIT_SUCCESS;
 }

@@ -7,8 +7,9 @@ OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp \
+					PmergeMe.cpp
 					
-HEAD_FILES		=	MutantStack.hpp
+HEAD_FILES		=	PmergeMe.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
@@ -42,7 +43,7 @@ fclean:			clean
 re:				fclean all
 
 test: all
-	./$(NAME)
+	./$(NAME) 3 5 9 7 4
 -include : ${DEPS}
 
 .PHONY:			all clean fclean re
