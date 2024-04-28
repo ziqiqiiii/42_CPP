@@ -60,7 +60,7 @@ void PmergeMe::checkPositiveNum(string input)
         if (input[i] == ' ' || input[i] == '\t' || input[i] == '\n')
             i++;
         if ((input[i]) && (!std::isdigit(input[i]))) {
-            throw std::runtime_error("Invalid Input");
+            throw std::runtime_error("Invalid arguments");
         }
     }
 }
