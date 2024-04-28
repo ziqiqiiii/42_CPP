@@ -1,5 +1,27 @@
 #include "../headers/PmergeMe.hpp"
 
+
+//**************************************
+//        FORWARD DECLARATIONS
+//**************************************
+
+template <typename Iterator>
+void fordJohnsonSort(Iterator begin, Iterator end);
+template <typename Iterator>
+void InsertionSort(Iterator begin, Iterator end);
+template <typename T>
+void display(const T& container);
+template<typename T>
+void sortAndMeasure(T& container);
+template <typename T>
+T StringToContainer(const string& input);
+
+string getcontainertype(const vector<int>&);
+string getcontainertype(const list<int>&);
+
+//=========================
+//ORTHODOX COCANICAL FORM
+//=========================
 PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe& other)
@@ -17,13 +39,20 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 
 PmergeMe::~PmergeMe() {}
 
-template <typename Iterator>
-void fordJohnsonSort(Iterator begin, Iterator end)
+
+PmergeMe::PmergeMe(char **argv)
 {
-    (void)begin;
-    (void)end;
+    string num = this->ArrayToString(argv);
+    this->checkPositiveNum(num);
+    vector<int> vec = StringToContainer<vector<int> >(num);
+    list<int> lst = StringToContainer<list<int> >(num);
+    sortAndMeasure(vec);
+    sortAndMeasure(lst);
 }
 
+//=========================
+//MEMBER FUNCTION
+//=========================
 void PmergeMe::checkPositiveNum(string input)
 {
     for (size_t i = 0; i < input.size(); i++){
@@ -50,28 +79,54 @@ string PmergeMe::ArrayToString(char **argv)
     return oss.str();
 }
 
-vector<int> PmergeMe::StringToVector(string num)
+//=========================
+// FUNCTION TEMPLATES
+//=========================
+template <typename Iterator>
+void fordJohnsonSort(Iterator begin, Iterator end)
 {
-    /* for (size_t i = 0; i < num.size(); i++) {
-        while (num[i] == ' ' || num[i] == '\t' || num[i] == '\n')
-            i++;
-    } */
-    vector<int> vec(num.begin(), num.end());
-    return vec;
-}
+    int size = std::distance(begin, end);
+    if (size < 2) return;
 
-list<int> PmergeMe::StringToList(string num)
-{
-    list<int> lst(num.begin(), num.end());
-    return lst;
-}
+    Iterator mid = begin;
+    std::advance(mid, size / 2);
+    Iterator left = begin;
+    Iterator right = mid;
 
+    // Step 1: Compare and sort pairs
+    while (right != end && left != mid) {
+        if (*right < *left) {
+            std::swap(*left, *right);
+        }
+        ++left;
+        if (right != end) {
+            std::advance(right, 1);
+            if (right == end) break;
+        }
+    }
+
+    // Recursive sort for both halves
+    fordJohnsonSort(begin, mid);
+    fordJohnsonSort(mid, end);
+
+    InsertionSort(begin, end);
+}
 
 template <typename Iterator>
-void InsertionSort(Iterator begin, Iterator end)
-{
-    (void)begin;
-    (void)end;
+void InsertionSort(Iterator begin, Iterator end) {
+    for (Iterator i = begin; i != end; ++i) {
+        Iterator j = i;
+        while (j != begin) {
+            Iterator k = j;
+            --k;
+            if (*j < *k) {
+                std::swap(*j, *k);
+                j = k;
+            } else {
+                break;
+            }
+        }
+    }
 }
 
 template <typename T>
@@ -87,13 +142,37 @@ void display(const T& container)
 
 template<typename T>
 void sortAndMeasure(T& container) {
-    cout << "Before :" << PmergeMe::display(container) << endl;
+    cout << "Before  :";
+    display(container);
+
     std::clock_t start = std::clock();
     // Assuming fordJohnsonSort is correctly defined to sort data
     fordJohnsonSort(container.begin(), container.end());  
     std::clock_t end = std::clock();
-    cout << "After  :" << PmergeMe::display(container) << endl;
+
+    cout << "After   :";
+    display(container);
 
     double elapsed = double(end - start) / CLOCKS_PER_SEC * 1000000;  // Convert to microseconds
-    std::cout << "Time to process a range of  " << container.size() << "with std:: " << container << " :" << elapsed << " microseconds.\n";
+    std::cout << "Time to process a range of  " << container.size() << " with " << getcontainertype(container) << " :" << elapsed << " microseconds.\n";
+}
+
+template <typename T>
+T StringToContainer(const string& input)
+{
+    std::istringstream iss(input);
+    string num;
+    T container;
+    while (iss >> num) {
+        container.push_back(std::atoi(num.c_str()));
+    }
+    return container;
+}
+
+string getcontainertype(const vector<int>&) {
+    return "std::vector<int>";
+}
+
+string getcontainertype(const list<int>&) {
+    return "std::list<int>  ";
 }

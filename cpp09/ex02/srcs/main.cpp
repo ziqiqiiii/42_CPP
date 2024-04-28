@@ -7,11 +7,7 @@ int main(int argc, char **argv)
 		return EXIT_FAILURE;
 	}
 	try {
-		PmergeMe pm;
-		string num = pm.ArrayToString(argv);
-		pm.checkPositiveNum(num);
-		vector<int> vec = pm.StringToVector(num);
-		list<int> lst = pm.StringToList(num);
+		PmergeMe pm(argv);
 	} catch (std::exception& e) {
 		cerr << "Error: " << e.what() << endl;
 		return EXIT_FAILURE;

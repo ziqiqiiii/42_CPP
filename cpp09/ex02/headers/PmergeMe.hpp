@@ -32,6 +32,7 @@ class PmergeMe
         //ORTHODOX COCANICAL FORM
         //=========================
         PmergeMe();
+        PmergeMe(char **argv);
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe();
@@ -41,8 +42,6 @@ class PmergeMe
         //=========================
         void checkPositiveNum(string input);
         string ArrayToString(char **argv);
-        vector<int> StringToVector(string num);
-        list<int> StringToList(string num);
 };
 
 #endif
