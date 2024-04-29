@@ -18,6 +18,7 @@ T StringToContainer(const string& input);
 
 string getcontainertype(const vector<int>&);
 string getcontainertype(const list<int>&);
+string getcontainertype(const deque<int>&);
 
 //=========================
 //ORTHODOX COCANICAL FORM
@@ -46,8 +47,10 @@ PmergeMe::PmergeMe(char **argv)
     this->checkPositiveNum(num);
     vector<int> vec = StringToContainer<vector<int> >(num);
     list<int> lst = StringToContainer<list<int> >(num);
+    deque<int> deq = StringToContainer<deque<int> >(num);
     sortAndMeasure(vec);
     sortAndMeasure(lst);
+    sortAndMeasure(deq);
 }
 
 //=========================
@@ -175,4 +178,8 @@ string getcontainertype(const vector<int>&) {
 
 string getcontainertype(const list<int>&) {
     return "std::list<int>  ";
+}
+
+string getcontainertype(const deque<int>&) {
+    return "std::deque<int>  ";
 }

@@ -16,6 +16,7 @@
 
 #include <vector>
 #include <list>
+#include <deque>
 
 using std::cout;
 using std::endl;
@@ -24,6 +25,7 @@ using std::string;
 
 using std::vector;
 using std::list;
+using std::deque;
 
 class PmergeMe
 {

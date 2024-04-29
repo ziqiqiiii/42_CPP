@@ -99,9 +99,13 @@ double BitcoinExchange::geteExchangeRate(const string date)
 
 void BitcoinExchange::isValueValid(string valueStr)
 {
+    int dot_flag = 0;
     for (size_t i = 0; i < valueStr.length(); i++) {
-        if (!std::isdigit(valueStr[i]))
+        if (valueStr[i] == '.')
+            dot_flag++;
+        if (!std::isdigit(valueStr[i]) && (dot_flag > 1)) {
             throw BitcoinExchange::valueIsNotValid();
+        }
     }
     double value = std::strtod(valueStr.c_str(), NULL);
     if (value <= 0)
